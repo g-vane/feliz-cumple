@@ -1,0 +1,15 @@
+# Crea la carpeta
+mkdir feliz-cumpleaños
+cd feliz-cumpleaños
+
+# Inicializa Git
+git init
+
+# Copia todos tus archivos aquí (index.html, fotos, videos, fondo.jpg, cancion.mp3)
+
+
+# Agrega todo
+git add .
+
+# Haz el commit
+git commit -m "Primer commit - Página de cumpleaños"
