@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Zule!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: #004173;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px 0;
+        }
+        
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            transform: scale(0.9);
+            animation: popIn 0.5s forwards ease-out;
+        }
+        @keyframes popIn {
+            to { transform: scale(1); }
+        }
+        .cake {
+            font-size: 60px;
+            margin-bottom: 10px;
+            animation: float 2s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        h1 {
+            color: #004173;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .btn {
+            background-color: #004173;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 65, 115, 0.4);
+        }
+        .btn:hover {
+            background-color: #005a8a;
+            transform: translateY(-2px);
+        }
+        /* Estilos de la Galería */
+        .gallery-container {
+            max-width: 650px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: none;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gallery-title {
+            color: #004173;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            position: relative;
+            padding-bottom: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #ddd;
+        }
+        .gallery-item img, 
+        .gallery-item video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.08);
+        }
+        /* Confeti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            animation: fall 3s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Tarjeta Principal -->
+        <div class="card">
+            <div class="cake">🎂</div>
+            <h1>¡Feliz Cumpleaños Zule!</h1>
+            <p>Hoy es un día súper especial. Espero que pases un año increíble, lleno de risas, éxitos y momentos felices. ¡Feliz cumple a la mejor amiga del mundo! 🎉</p>
+            <button class="btn" onclick="lanzarSorpresa()">¡Haz clic aquí!</button>
+        </div>
+
+        <!-- Galería de Fotos y Videos -->
+        <div class="gallery-container" id="galeria">
+            <h2 class="gallery-title">📸 Nuestros Momentos Favoritos</h2>
+            <div class="gallery-grid">
+                <!-- Video 1 -->
+                <div class="gallery-item">
+                    <video muted loop playsinline>
+                        <source src="video1.mp4" type="video/mp4">
+                        Tu navegador no soporta videos.
+                    </video>
+                </div>
+                <!-- Video 2 -->
+                <div class="gallery-item">
+                    <video muted loop playsinline>
+                        <source src="video2.mp4" type="video/mp4">
+                        Tu navegador no soporta videos.
+                    </video>
+                </div>
+		<!-- Video 3 -->
+                <div class="gallery-item">
+                    <video muted loop playsinline>
+                        <source src="video3.mp4" type="video/mp4">
+                        Tu navegador no soporta videos.
+                    </video>
+                </div>
+                <!-- Foto 1 -->
+                <div class="gallery-item">
+                    <img src="imagen1.jpg" alt="Momento 1">
+                </div>
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="imagen2.jpeg" alt="Momento 2">
+                </div>
+                <!-- Foto 3 -->
+                <div class="gallery-item">
+                    <img src="imagen3.jpeg" alt="Momento 3">
+                </div>
+                <!-- Foto 4 -->
+                <div class="gallery-item">
+                    <img src="imagen4.jpeg" alt="Momento 4">
+                </div>
+		<!-- Foto 5 -->
+                <div class="gallery-item">
+                    <img src="imagen5.jpeg" alt="Momento 5">
+                </div>
+		<!-- Foto 6 -->
+                <div class="gallery-item">
+                    <img src="imagen6.jpeg" alt="Momento 6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elemento de Audio Oculto -->
+    <audio id="musica" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta reproducción de audio.
+    </audio>
+
+    <script>
+        // Reproducir automáticamente los videos cuando la galería se muestre
+        function reproducirVideos() {
+            const videos = document.querySelectorAll('.gallery-item video');
+            videos.forEach(video => {
+                video.play().catch(error => {
+                    console.log("Reproducción automática de video bloqueada:", error);
+                });
+            });
+        }
+
+        function lanzarSorpresa() {
+            // 1. Cambiar texto del botón
+            const btn = document.querySelector('.btn');
+            btn.innerText = "¡Que cumplas muchos más! ✨";
+            
+            // 2. Mostrar la galería de fotos
+            const galeria = document.getElementById('galeria');
+            galeria.style.display = 'block';
+            
+            // 3. Reproducir videos
+            setTimeout(reproducirVideos, 500);
+
+            // 4. Reproducir la canción de fondo
+            const musica = document.getElementById('musica');
+            musica.play().catch(error => {
+                console.log("La reproducción automática fue bloqueada por el navegador:", error);
+            });
+            
+            // 5. Generar confeti animado
+            const colors = ['#004173', '#005a8a', '#0077b6', '#00b4d8', '#90e0ef', '#caf0f8', '#ffb3c1'];
+            for (let i = 0; i < 60; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => { confetti.remove(); }, 4000);
+            }
+        }
+    </script>
+</body>
+</html>
